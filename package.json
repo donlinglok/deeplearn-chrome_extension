@@ -1,0 +1,15 @@
+{
+  "name": "deeplearn-chrome_extension",
+  "version": "1.0.0",
+  "main": "content.js",
+  "repository": "https://github.com/donlinglok/deeplearn-chrome_extension.git",
+  "author": "Kenneth Tu <donlinglok@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/ml5/dist'), 'lib/ml5', 'junction') } catch (e) { console.log(e) }\""
+  },
+  "dependencies": {
+    "ml5": "^0.12.2"
+  }
+}

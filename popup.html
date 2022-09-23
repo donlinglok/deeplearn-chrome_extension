@@ -1,18 +1,16 @@
 <!doctype html>
 <html>
-
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
+    <script src="scripts/p5ml.min.js"></script>
+    <script src="lib/ml5/ml5.js"></script>
 </head>
-
 <body>
-  <video crossorigin="anonymous" width="227" height="227" id="video"></video>
-  <button id="still">Still</button>
-  <button id="up">Up</button>
-  <button id="down">Down</button>
-  <button id="predict">Predict</button>
-  <script src="scripts/p5ml.min.js"></script>
-  <script src="scripts/popup.js"></script>
+    Will auto predict after train 10 times.<br>
+    <video crossorigin="anonymous" width="227" height="227" id="video"></video>
+    <button type="button" id="still">remember this is Still</button>
+    <button type="button" id="up">remember this is Up</button>
+    <button type="button" id="down">remember this is Down</button>
+    <script src="scripts/popup.js"></script>
 </body>
-
 </html>

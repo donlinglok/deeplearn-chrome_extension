@@ -1,85 +1,85 @@
-console.log('popup ready!');
+let trainTimes = 0;
 
-let startPredicting = false;
-let times = 0;
-let y = 0;
+let LABEL_STILL = '0';
+let LABEL_UP = '1';
+let LABEL_DOWN = '2';
 
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', () => {
   let video = document.getElementById('video');
   let still = document.getElementById('still');
   let up = document.getElementById('up');
   let down = document.getElementById('down');
-  let predict = document.getElementById('predict');
+
+  const classifier = ml5.imageClassifier('MobileNet', () => {
+    console.log('Model Loaded');
+  });
 
   // Still 
-  still.addEventListener('click', function() {
-    knn.addImage(video, 1);
-    times++;
-  })
-  // Up
-  up.addEventListener('click', function() {
-    knn.addImage(video, 2);
-    times++;
-  })
-  // Down
-  down.addEventListener('click', function() {
-    knn.addImage(video, 3);
-    times++;
-  })
-  // Predict
-  predict.addEventListener('click', function() {
-    knn.predict(video, function(data) {
-      console.log(data);
+  still.addEventListener('click', () => {
+    console.log('still click');
+    classifier.classify(video, (err, result) => {
+      console.log(result);
+      LABEL_STILL = result[0].label;
+      trainTimes++;
+      console.log('still complete:' + trainTimes);
     });
-  })
+  });
 
-  let knn = new p5ml.KNNImageClassifier(modelLoaded);
+  // Up
+  up.addEventListener('click', () => {
+    console.log('up click');
+    classifier.classify(video, (err, result) => {
+      console.log(result);
+      LABEL_UP = result[0].label;
+      trainTimes++;
+      console.log('up complete:' + trainTimes);
+    });
+  });
 
-  setInterval(function() {
-    if (times > 10) {
-      knn.predict(video, function(data) {
-        if (data.classIndex == 1) {
+  // Down
+  down.addEventListener('click', () => {
+    console.log('down click');
+    classifier.classify(video, (err, result) => {
+      console.log(result);
+      LABEL_DOWN = result[0].label;
+      trainTimes++;
+      console.log('down complete:' + trainTimes);
+    });
+  });
 
-        } else if (data.classIndex == 2) {
+  setInterval(() => {
+    if (trainTimes > 9) {
+      classifier.classify(video, (err, result) => {
+        console.log(result);
+        if (result[0].label == LABEL_STILL) {
+          console.log('still');
+          // DO NOTHING
+        } else if (result[0].label == LABEL_UP) {
           console.log('up');
-          chrome.runtime.sendMessage({ direction: "up" }, function(response) {
-          });
-        } else if (data.classIndex == 3) {
+          chrome.runtime.sendMessage({ direction: "up" });
+        } else if (result[0].label == LABEL_DOWN) {
           console.log('down');
-          chrome.runtime.sendMessage({ direction: "down" }, function(response) {
-          });
+          chrome.runtime.sendMessage({ direction: "down" });
         }
-
       });
     }
-  }, 1500);
-
-  navigator.getUserMedia = navigator.getUserMedia;
+  }, 1000);
 
   if (navigator.getUserMedia) {
     navigator.getUserMedia({ audio: false, video: true },
-      function(stream) {
+      (stream) => {
         video.srcObject = stream;
-        video.onloadedmetadata = function(e) {
+        video.onloadedmetadata = (e) => {
           video.play();
         };
       },
-      function(err) {
+      (err) => {
         console.log("The following error occurred: " + err.name);
       }
     );
   } else {
     console.log("getUserMedia not supported");
   }
-})
+});
 
-function modelLoaded() {
-  console.log('Model Loaded')
-}
-
-// chrome.runtime.sendMessage({ txt: "holatu" }, function(response) {
-//   console.log(response)
-//   // tabURL = response.navURL;
-//   // $("#tabURL").text(tabURL);
-// });
+console.log('popup ready!');

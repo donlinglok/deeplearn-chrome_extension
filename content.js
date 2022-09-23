@@ -1,18 +1,15 @@
-console.log('Content Script ready!');
-
-chrome.runtime.onMessage.addListener(gotMessage)
-
-function gotMessage(message, sender, sendResponse){
-  let direction = 0; 
-  if(message.direction == 'up'){
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  let direction = 0;
+  if (message.direction == 'up') {
     direction = -500;
-  } else if(message.direction == 'down'){
+  } else if (message.direction == 'down') {
     direction = +500;
   }
-  window.scrollBy({ 
+  window.scrollBy({
     top: direction,
-    left: 0, 
-    behavior: 'smooth' 
+    left: 0,
+    behavior: 'smooth'
   });
+});
 
-}
+console.log('content ready!');

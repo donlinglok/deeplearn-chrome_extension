@@ -1,0 +1,44 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\KennethTu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add ml5js
+
+PATH: 
+  C:\Python310\Lib\site-packages\wlc\test_data;C:\podman-4.0.2\usr\bin;C:\apache-maven-3.8.4\bin;C:\gradle-7.5.1\bin;C:\Users\KennethTu\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\KennethTu\AppData\Local\Programs\Python\Python310;C:\Program Files\Git\usr\local\Cellar\python\3.7.3\Frameworks\Python.framework\Versions\3.7\bin;C:\Users\KennethTu\.fastlane\bin;C:\Program Files\Git\usr\local\Cellar\node\10.9.0\bin;C:\Users\KennethTu\Library\Android\sdk\platform-tools;C:\Users\KennethTu\Library\Android\sdk\tools;C:\Program Files\Java\jdk-11.0.15\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\local\sbin;C:\Users\KennethTu\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\KennethTu\bin;C:\Python310\Scripts;C:\Python310;C:\Program Files\Eclipse Adoptium\jdk-17.0.3.7-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\PuTTY;C:\apache-maven-3.8.4\bin;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\Go\bin;C:\Users\KennethTu\AppData\Local\Microsoft\WindowsApps;C:\Users\KennethTu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\KennethTu\AppData\Local\GitHubDesktop\bin;C:\Users\KennethTu\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\KennethTu\AppData\Roaming\npm;C:\Python310\Lib\site-packages\wlc;C:\Python310\Lib\site-packages\wlc\test_data;C:\Users\KennethTu\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/ml5js: Not found
+      at Request.params.callback [as _callback] (C:\Users\KennethTu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
+      at Request.self.callback (C:\Users\KennethTu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (C:\Users\KennethTu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (C:\Users\KennethTu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "deeplearn-chrome_extension",
+    "version": "1.0.0",
+    "main": "content.js",
+    "repository": "https://github.com/donlinglok/deeplearn-chrome_extension.git",
+    "author": "Kenneth Tu <donlinglok@users.noreply.github.com>",
+    "license": "MIT",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
